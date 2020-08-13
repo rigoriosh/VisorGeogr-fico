@@ -4,7 +4,9 @@ import store from './store'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import '@mdi/font/css/materialdesignicons.css'
-import 'leaflet/dist/leaflet.css';
+import "chart.js";
+import "hchs-vue-charts";
+Vue.use(window.VueCharts);
 
 //Creación de una instancia de Vue para almacenar el objeto mapa de Leaflet
 let globalData = new Vue({

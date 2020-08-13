@@ -6,15 +6,15 @@
       </header>
       <section v-show="!this.$store.getters.getState.userIsLogin" class="modal-card-body">
         <b-field label="Nombre Usuario">
-          <b-input v-model="user" placeholder="Your user" required validation-message></b-input>
+          <b-input v-model="user" placeholder=" Tú usuario" required validation-message></b-input>
         </b-field>
         <span class="error" v-show="errorUsuario != ''">{{errorUsuario}}</span>
-        <b-field label="Password">
+        <b-field label="Contraseña">
           <b-input
             type="password"
             v-model="password"
             password-reveal
-            placeholder="Your password"
+            placeholder="Tú contraseña"
             required
           ></b-input>
         </b-field>
@@ -22,7 +22,7 @@
       </section>
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$parent.close()">Cerrar</button>
-        <button class="button is-primary" @click="validateLogin">{{textBTNLogin}}</button>
+        <button class="button is-primary" @click="validateLogin">{{textTitleLogin}}</button>
       </footer>
     </div>
   </div>
@@ -36,8 +36,7 @@ export default {
       errorUsuario: "",
       errorPassword: "",
       user: "",
-      password: "",
-      textBTNLogin: "Login",
+      password: "",      
       textTitleLogin: "Iniciar Sesión",
     };
   },
@@ -60,8 +59,7 @@ export default {
         this.userLogIn();
       }
     },
-    userLogIn() {      
-      this.textBTNLogin = "LogOut";
+    userLogIn() {            
       this.textTitleLogin = "Cerrar Sesion";
       this.errorUsuario = "";
       this.errorPassword = "";
@@ -75,8 +73,7 @@ export default {
       this.$store.commit("setUser", "invitado");
       this.$store.commit("setUserIsLogin", false);
       this.errorUsuario = "";
-      this.errorPassword = "";
-      this.textBTNLogin = "Login";
+      this.errorPassword = "";      
       this.textTitleLogin = "Iniciar Sesion";
       this.$parent.close();
     },
